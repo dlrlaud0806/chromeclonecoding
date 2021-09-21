@@ -1,10 +1,10 @@
-const API_KEY = "f3a4616a55a325d6e3afdd57ba05781e"
+const API_KEY = "YOUR_API_KEY"
 
 function onGeoOK(position){
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const url =
-     `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`; // call API 
+     `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
 
     fetch(url)
     .then(response => response.json())
@@ -16,9 +16,6 @@ function onGeoOK(position){
         weather.innerText = data.weather[0].main;
         city.innerText = data.name;
         temp.innerText = `${Math.floor(data.main.temp)}˚C`;})
-    
-    // Javascript가 브라우저에 요청하여 API url에 방문하지 않아도 url내부의 자체정보를 브라우저로 가져옴 (Network 탭에서 확인)
-    
     }
 
 function onGeoError(){
